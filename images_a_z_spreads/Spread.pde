@@ -73,22 +73,22 @@ class Spread{
         footerX = width/2 + margins[1];
         isMiddle = true;
       }
-      text(queries.get(i), footerX, footerY + gutter/2);
+      text(queries.get(i), footerX, footerY + 4*mm);
       footerX += textWidth(queries.get(i)) + 2*mm;
     }
 
-  // HEADER
-    // Rect
-    stroke(pink);
-    strokeWeight(2*mm);
-    noFill();
-    rect(margins[3] + 1*mm, margins[0] + 1*mm, 56*mm, 56*mm);
-  
-    // Type
-    noStroke();
-    fill(pink);  
-    textFont(fontBold);
-    textAlign(CENTER, CENTER);
-    text(letter.toUpperCase(), margins[3], margins[0] - 5*mm, 56*mm, 56*mm);  
+//  // HEADER
+//    // Rect
+//    stroke(pink);
+//    strokeWeight(2*mm);
+//    noFill();
+//    rect(margins[3] + 1*mm, margins[0] + 1*mm, 56*mm, 56*mm);
+//  
+//    // Type
+//    noStroke();
+//    fill(pink);  
+//    textFont(fontBold);
+//    textAlign(CENTER, CENTER);
+//    text(letter.toUpperCase(), margins[3], margins[0] - 5*mm, 56*mm, 56*mm);  
   }
 }

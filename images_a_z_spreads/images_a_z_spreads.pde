@@ -11,7 +11,7 @@ float maxWidthImages;
 color pink;
 PFont fontRegular;
 PFont fontBold;
-String language = "german";
+String language = "french";
 
 import java.io.File;
 File folder;
@@ -21,7 +21,7 @@ int pageNumber = 0;
 
 void setup(){
   
-  mm = 8;
+  mm = 3;
   margins = new int[4];
   margins[0] = 13*mm;
   margins[1] = 13*mm;
@@ -29,11 +29,11 @@ void setup(){
   margins[3] = 21*mm;
   gutter = 6*mm;
   
-//  size(432*mm, 279*mm, PDF, language + "_spreads.pdf");
-  size(432*mm, 279*mm);
+  size(400*mm, 200*mm, PDF, language + "_spreads.pdf");
+//  size(400*mm, 200*mm);
   colorMode(RGB, 255, 255, 255, 100);
   
-  imgBaseline = 172*mm;
+  imgBaseline = 117*mm;
   maxSizeFirstImage = new PVector(width/2 - margins[1] - margins[3],
                                   imgBaseline - margins[0]);
   maxWidthImages = (width/2 - margins[1] - margins[3] - 2*gutter)/3;
@@ -77,11 +77,11 @@ void draw(){
   spreads.get(pageNumber).display();
   
   // Tif?
-  save(language + "_spreads_" + pageNumber + ".tif");
+//  save(language + "_spreads_" + pageNumber + ".tif");
   
-//  PGraphicsPDF pdf = (PGraphicsPDF) g;  // Get the renderer
+  PGraphicsPDF pdf = (PGraphicsPDF) g;  // Get the renderer
   if(pageNumber < spreads.size() - 1){
-//    pdf.nextPage();
+    pdf.nextPage();
     pageNumber ++;    
   }else{
     exit();
@@ -98,19 +98,3 @@ void debug(){
     }
   }
 }
-
-//void keyPressed(){
-//  if(key == CODED){    
-//    if(keyCode == LEFT || keyCode == UP){
-//      pageNumber --;      
-//    }else if(keyCode == RIGHT || keyCode == DOWN){      
-//      pageNumber ++;
-//    }
-//    pageNumber = constrain(pageNumber, 0, spreads.size() - 1);
-//  }
-////  else if(key == ' '){
-////    PGraphicsPDF pdf = (PGraphicsPDF) g;  // Get the renderer
-////    pdf.nextPage();
-////  }
-//
-//}
