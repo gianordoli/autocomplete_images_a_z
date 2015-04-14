@@ -1,0 +1,13 @@
+.DS_Store
+applet
+application.linux32
+application.linux64
+application.windows32
+application.windows64
+application.macosx
+
+images_a_z_cover/data
+images_a_z_spreads/data
+.tif
+.jpg
+.pdf
