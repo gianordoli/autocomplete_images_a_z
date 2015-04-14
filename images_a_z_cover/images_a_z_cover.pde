@@ -1,5 +1,5 @@
 int mm;
-int margin;
+int[] margins = new int[4];
 int gutter;
 PVector imageSize;
 
@@ -13,14 +13,17 @@ PGraphics[] gMask;
 void setup(){
   
   mm = 8;
-  margin = 5*mm;
-  gutter = margin;
+  margins[0] = 5*mm;
+  margins[1] = 78*mm;
+  margins[2] = 5*mm;
+  margins[3] = 5*mm;
+  gutter = 3*mm;
   
-  size(432*mm, 279*mm);
+  size(400*mm, 200*mm);
   colorMode(RGB, 255, 255, 255, 100);
   
-  imageSize = new PVector((width/2 - 2*margin - 12*gutter)/13.0,
-                          (height - 2*margin - 9*gutter)/10.0);
+  imageSize = new PVector((width - margins[1] - 3*margins[3] - 24*gutter)/26.0,
+                          (height - margins[0]- margins[2] - 9*gutter)/10.0);
   
   java.io.File folder = new java.io.File(dataPath(""));
   
@@ -51,18 +54,18 @@ void setup(){
 
 void draw(){
   background(255);
-  float x = margin;
-  float y = margin;
+  float x = margins[3];
+  float y = margins[0];
   for(int i = 0; i < gMask.length; i++){
     image(gMask[i], x, y);
     y += imageSize.y + gutter;
-    if(y >= height - margin){
-      y = margin;
+    if(y >= height - margins[2]){
+      y = margins[0];
       x += imageSize.x + gutter;
     }
     println(i);
-    if(i == 129){
-      x += gutter;
+    if(i == 159){
+      x = width/2 + margins[3];
     }    
   }
   
