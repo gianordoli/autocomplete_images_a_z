@@ -8,6 +8,6 @@ application.macosx
 
 images_a_z_cover/data
 images_a_z_spreads/data
-.tif
-.jpg
-.pdf
+*.tif
+*.jpg
+*.pdf
